@@ -1,5 +1,5 @@
 import { Container } from "../constants/Layout.styled";
-import { Card } from "./Card/Card";
+import { CardList } from "./CardList/CardList";
 
 const App = () => {
   return (
@@ -8,7 +8,7 @@ const App = () => {
         <h1>Follow me</h1>
       </header>
       <div>
-        <Card />
+        <CardList />
       </div>
     </Container>
   );

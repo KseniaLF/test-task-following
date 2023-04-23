@@ -3,7 +3,7 @@ import styled from "styled-components";
 import headerCard from "../../images/card-header.png";
 import border from "../../images/border.png";
 
-export const CardWrapper = styled.div`
+export const CardWrapper = styled.li`
   width: 380px;
   height: 460px;
   color: #fff;
@@ -57,20 +57,15 @@ export const Info = styled.div`
 
 export const UserWrapper = styled.div`
   position: relative;
-  /* width: 10px;
-  height: 10px; */
-`;
-export const BorderLine = styled.span`
-  position: absolute;
-  width: 380px;
+  width: 100%;
   height: 10px;
-  /* left: -185px; */
-  top: -5px;
+
   background: #ebd8ff;
   box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
     inset 0px -2.19582px 4.39163px #ae7be3,
     inset 0px 4.39163px 3.29372px #fbf8ff;
 `;
+
 export const UserImg = styled.span`
   border-radius: 50%;
 
@@ -79,7 +74,10 @@ export const UserImg = styled.span`
   background-color: #5736a3;
 
   top: -50px;
-  left: 140px;
+  left: 37%;
+  @media (max-width: 450px) {
+    left: 35%;
+  }
 
   width: 80px;
   height: 80px;
@@ -96,6 +94,10 @@ export const UserImg = styled.span`
     box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
       inset 0px -2.19582px 4.39163px #ae7be3,
       inset 0px 4.39163px 3.29372px #fbf8ff;
+  }
+
+  img {
+    border-radius: 50%;
   }
 `;
 

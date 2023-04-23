@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  BorderLine,
   Button,
   CardHeader,
   CardWrapper,
@@ -10,11 +9,11 @@ import {
   UserWrapper,
 } from "./Card.styled";
 
-import user from "../../images/boy.png";
-
-export const Card = () => {
+export const Card = ({ user }) => {
   const [isFollow, setIsFollow] = useState(false);
-  const [followers, setFollowers] = useState(100500);
+
+  const [followers, setFollowers] = useState(user.followers);
+  const formattedNumber = followers.toLocaleString();
 
   const handleToggle = () => {
     setIsFollow(!isFollow);
@@ -33,19 +32,22 @@ export const Card = () => {
       </CardHeader>
 
       <UserWrapper>
-        <BorderLine />
-
         <UserImg>
-          <img src={user} alt="" />
+          <img src={user.avatar} alt="user" />
         </UserImg>
       </UserWrapper>
 
       <Info>
         <Stats>
-          <p>777 tweets</p>
-          <p>{followers} Followers</p>
+          <p>{user.tweets} tweets</p>
+          <p>{formattedNumber} Followers</p>
         </Stats>
-        <Button type="button" onClick={handleToggle} primary={isFollow}>
+        <Button
+          type="button"
+          onClick={handleToggle}
+          primary={isFollow}
+          title={user.user}
+        >
           {isFollow ? "Following" : "Follow"}
         </Button>
       </Info>

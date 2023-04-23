@@ -17,7 +17,7 @@ export const Layout = styled.div`
 
 export const Container = styled.div`
   /* text-align: center; */
-  max-width: 980px;
+  /* max-width: 980px; */
   margin: 0 auto;
   padding: 0 16px;
 `;
