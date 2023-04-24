@@ -10,18 +10,11 @@ import {
 } from "./Card.styled";
 
 const getInitialValue = (id) => {
-  const value = JSON.parse(localStorage.getItem("folow"));
+  const followData = JSON.parse(localStorage.getItem("follow"));
 
-  // console.log(value && value[id]);
-  // console.log(value[id]);
-  if (value && value[id]) {
-    // console.log(value.id);
+  if (followData && followData.includes(id)) {
     return true;
   } else {
-    // if (value) {
-    //   delete value[id];
-    //   localStorage.setItem("folow", JSON.stringify(value));
-    // }
     return false;
   }
 };
@@ -50,11 +43,15 @@ export const Card = ({ user }) => {
     }
 
     const userId = user.id;
-    const value = JSON.parse(localStorage.getItem("folow"));
-    localStorage.setItem(
-      `folow`,
-      JSON.stringify({ ...value, [userId]: !isFollow })
-    );
+    const followData = JSON.parse(localStorage.getItem("follow"));
+
+    if (followData) {
+      if (followData.includes(userId)) {
+        const filteredFollow = followData.filter((item) => item !== userId);
+        localStorage.setItem(`follow`, JSON.stringify(filteredFollow));
+      } else
+        localStorage.setItem(`follow`, JSON.stringify([...followData, userId]));
+    } else localStorage.setItem(`follow`, JSON.stringify([userId]));
   };
 
   return (
