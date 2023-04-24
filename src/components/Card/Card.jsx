@@ -9,10 +9,35 @@ import {
   UserWrapper,
 } from "./Card.styled";
 
-export const Card = ({ user }) => {
-  const [isFollow, setIsFollow] = useState(false);
+const getInitialValue = (id) => {
+  const value = JSON.parse(localStorage.getItem("folow"));
 
-  const [followers, setFollowers] = useState(user.followers);
+  // console.log(value && value[id]);
+  // console.log(value[id]);
+  if (value && value[id]) {
+    // console.log(value.id);
+    return true;
+  } else {
+    // if (value) {
+    //   delete value[id];
+    //   localStorage.setItem("folow", JSON.stringify(value));
+    // }
+    return false;
+  }
+};
+
+const getInitialFollovers = (follovers, isFollow) => {
+  if (isFollow) {
+    return follovers + 1;
+  } else return follovers;
+};
+
+export const Card = ({ user }) => {
+  const [isFollow, setIsFollow] = useState(getInitialValue(user.id));
+
+  const [followers, setFollowers] = useState(
+    getInitialFollovers(user.followers, isFollow)
+  );
   const formattedNumber = followers.toLocaleString();
 
   const handleToggle = () => {
@@ -23,6 +48,13 @@ export const Card = ({ user }) => {
     } else {
       setFollowers((prev) => prev - 1);
     }
+
+    const userId = user.id;
+    const value = JSON.parse(localStorage.getItem("folow"));
+    localStorage.setItem(
+      `folow`,
+      JSON.stringify({ ...value, [userId]: !isFollow })
+    );
   };
 
   return (
