@@ -1,30 +1,59 @@
 import { useEffect, useState } from "react";
 import { Card } from "../Card/Card";
 import { fetchContacts } from "../../fetch/fetch";
-import { ListWrapper } from "./CardList.styled";
+import {
+  ListWrapper,
+  LoadMore,
+  LoadWrapper,
+  MainWrapper,
+} from "./CardList.styled";
+import { Loader } from "../Loader";
 
 export const CardList = () => {
   const [usersData, setUsersData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const maxPage = 5;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchContacts();
+        setIsLoading(true);
+
+        const data = await fetchContacts(page);
         console.log(data);
-        setUsersData(data);
+
+        if (page === 1) {
+          setUsersData(data);
+        } else {
+          setUsersData((prev) => [...prev, ...data]);
+        }
+
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [page]);
 
   return (
-    <ListWrapper>
-      {usersData.map((user) => (
-        <Card key={user.id} user={user} />
-      ))}
-    </ListWrapper>
+    <MainWrapper>
+      <ListWrapper>
+        {usersData.map((user) => (
+          <Card key={user.id} user={user} />
+        ))}
+      </ListWrapper>
+      <LoadWrapper>
+        {isLoading && <Loader />}
+        {!isLoading && page !== maxPage && (
+          <LoadMore type="button" onClick={() => setPage((prev) => prev + 1)}>
+            Load more
+          </LoadMore>
+        )}
+      </LoadWrapper>
+    </MainWrapper>
   );
 };
