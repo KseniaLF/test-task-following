@@ -4,6 +4,8 @@ export const MainWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-top: 20px;
 `;
 export const ListWrapper = styled.ul`
   display: flex;
@@ -17,8 +19,18 @@ export const LoadWrapper = styled.div`
   margin: 30px 0;
 `;
 export const LoadMore = styled.button`
-  padding: 15px 25px;
-  background-color: #ae7be3;
+  padding: 15px 35px;
+  background-color: #5736a3;
+  color: #fff;
+  border-radius: 10px;
+  outline: none;
 
   font-size: 20px;
+  transition: all 300ms ease;
+
+  cursor: pointer;
+
+  :hover {
+    padding: 15px 40px;
+  }
 `;

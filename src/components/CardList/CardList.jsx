@@ -14,7 +14,7 @@ export const CardList = () => {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
-  const maxPage = 5;
+  const maxPage = 7;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +22,6 @@ export const CardList = () => {
         setIsLoading(true);
 
         const data = await fetchContacts(page);
-        console.log(data);
 
         if (page === 1) {
           setUsersData(data);
@@ -46,8 +45,10 @@ export const CardList = () => {
           <Card key={user.id} user={user} />
         ))}
       </ListWrapper>
+
       <LoadWrapper>
         {isLoading && <Loader />}
+
         {!isLoading && page !== maxPage && (
           <LoadMore type="button" onClick={() => setPage((prev) => prev + 1)}>
             Load more

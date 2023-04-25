@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import headerCard from "../../images/card-header.png";
-import border from "../../images/border.png";
 
 export const CardWrapper = styled.li`
   width: 380px;
@@ -13,11 +12,6 @@ export const CardWrapper = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* justify-content: flex-end;
-  align-items: center; */
-  /*   gap: 26px; */
-
-  /* padding: 36px; */
 
   background: linear-gradient(
     114.99deg,
@@ -29,21 +23,8 @@ export const CardWrapper = styled.li`
   border-radius: 20px;
 
   span {
-    /* background-image: url(${border}); */
-    /* border: 5px solid black; */
-    /* border-image: url(${border}) 100; */
-    /* border-image-source: url(${border}); */
-    /* background-size: contain;
-    background-position: center; */
-    /* 
-    width: 100px;
-    height: 100px;*/
-    /* border-radius: 50%; */
-
     outline: none;
     display: block;
-    /* box-shadow: 0px 0px 5px 5px #ccc, 0px 0px 5px 6px #eee,
-      0px 0px 1px 12px #ccc; */
   }
 `;
 
@@ -83,6 +64,7 @@ export const UserImg = styled.span`
   height: 80px;
 
   border: 10px solid #ebd8ff;
+
   ::before {
     content: "";
     position: absolute;
@@ -103,16 +85,14 @@ export const UserImg = styled.span`
 
 export const CardHeader = styled.div`
   padding: 20px 40px 0 40px;
+
   span {
     width: 100%;
     height: 168px;
-    /* padding: 36px; */
 
     background-image: url(${headerCard});
-    /* background-size: cover; */
     background-size: contain;
     background-position: center;
-    /* background-size: 100%; */
   }
 `;
 
