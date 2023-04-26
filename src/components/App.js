@@ -9,8 +9,18 @@ const App = () => {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
 
-        <Route path="tweets" element={<Tweets />} />
+        <Route path="/tweets" element={<Tweets />} />
       </Route>
+
+      {/* <Route
+        path="*"
+        element={
+          <>
+            <SharedLayout />
+            <Home />
+          </>
+        }
+      /> */}
     </Routes>
   );
 };
