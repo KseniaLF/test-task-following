@@ -10,17 +10,9 @@ const App = () => {
         <Route index element={<Home />} />
 
         <Route path="/tweets" element={<Tweets />} />
-      </Route>
 
-      <Route
-        path="/*"
-        element={
-          <>
-            <SharedLayout />
-            <Home />
-          </>
-        }
-      />
+        <Route path="*" element={<Home />} />
+      </Route>
     </Routes>
   );
 };
