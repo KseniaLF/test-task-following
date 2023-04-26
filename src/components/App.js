@@ -12,7 +12,7 @@ const App = () => {
         <Route path="/tweets" element={<Tweets />} />
       </Route>
 
-      {/* <Route
+      <Route
         path="*"
         element={
           <>
@@ -20,7 +20,7 @@ const App = () => {
             <Home />
           </>
         }
-      /> */}
+      />
     </Routes>
   );
 };
