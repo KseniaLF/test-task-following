@@ -13,7 +13,7 @@ const App = () => {
       </Route>
 
       <Route
-        path="*"
+        path="/*"
         element={
           <>
             <SharedLayout />
