@@ -1,16 +1,17 @@
-import { Container } from "../constants/Layout.styled";
-import { CardList } from "./CardList/CardList";
+import { Route, Routes } from "react-router-dom";
+import { SharedLayout } from "./SharedLayout/SharedLayout";
+import Home from "../pages/Home";
+import Tweets from "../pages/Tweets";
 
 const App = () => {
   return (
-    <Container>
-      <header>
-        <h1>Follow me</h1>
-      </header>
-      <div>
-        <CardList />
-      </div>
-    </Container>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+
+        <Route path="tweets" element={<Tweets />} />
+      </Route>
+    </Routes>
   );
 };
 
