@@ -34,3 +34,33 @@ export const LoadMore = styled.button`
     padding: 15px 40px;
   }
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    margin-right: 10px;
+    padding: 5px 10px;
+
+    background-color: #5736a3b9;
+    border-radius: 5px;
+    outline: none;
+
+    font-size: 20px;
+    color: #fff;
+    transition: all 300ms ease;
+
+    cursor: pointer;
+
+    color: #fff;
+    text-decoration: none;
+
+    :hover {
+      background-color: #5736a3;
+      /* padding: 15px 40px; */
+    }
+  }
+`;
