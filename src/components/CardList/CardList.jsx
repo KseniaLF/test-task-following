@@ -8,6 +8,7 @@ import {
   MainWrapper,
 } from "./CardList.styled";
 import { Loader } from "../Loader";
+import { BackLink } from "../BackLink/BackLink";
 
 export const CardList = () => {
   const [usersData, setUsersData] = useState([]);
@@ -39,22 +40,26 @@ export const CardList = () => {
   }, [page]);
 
   return (
-    <MainWrapper>
-      <ListWrapper>
-        {usersData.map((user) => (
-          <Card key={user.id} user={user} />
-        ))}
-      </ListWrapper>
+    <>
+      <BackLink />
 
-      <LoadWrapper>
-        {isLoading && <Loader />}
+      <MainWrapper>
+        <ListWrapper>
+          {usersData.map((user) => (
+            <Card key={user.id} user={user} />
+          ))}
+        </ListWrapper>
 
-        {!isLoading && page !== maxPage && (
-          <LoadMore type="button" onClick={() => setPage((prev) => prev + 1)}>
-            Load more
-          </LoadMore>
-        )}
-      </LoadWrapper>
-    </MainWrapper>
+        <LoadWrapper>
+          {isLoading && <Loader />}
+
+          {!isLoading && page !== maxPage && (
+            <LoadMore type="button" onClick={() => setPage((prev) => prev + 1)}>
+              Load more
+            </LoadMore>
+          )}
+        </LoadWrapper>
+      </MainWrapper>
+    </>
   );
 };
