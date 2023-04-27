@@ -6,9 +6,12 @@
 
 This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
-    The site has implemented the functionality of subscription per user, with the ability to store subscription data locally.
+    The site has implemented the functionality of subscription per user,
+    with the ability to store subscription data locally.
     Data about users is taken from the created mockapi.io database. Pagination is also implemented.
     Created routing using React Router.
+    
+Bug: When reloading the page https://ksenialf.github.io/test-task-following/tweets you get a 404 error.
 
 ### Use this template:
 
